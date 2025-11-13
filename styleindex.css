@@ -185,25 +185,64 @@ li a{
 .gallery {
     display: flex;
     flex-wrap: wrap;
-    gap:20px;
+    gap: 20px;
 }
 
 .image {
     width: 30%;
-    border-radius:12px;
+    border-radius: 12px;
     overflow: hidden;
-
-    transform:scale(1);
-    transition: all 0.4s ease-in-out;
     background-color: #0C084C;
+    position: relative;
+    cursor: pointer;
 }
+
 .image img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-.image:hover {
-    transform:scale(1.1);
+.image:hover img {
+    transform: scale(1.15);
+}
+
+.image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.image:hover::before {
+    opacity: 1;
+}
+
+.image::after {
+    content: attr(data-text);  /* INI YANG PENTING - ambil dari data-text */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+.image:hover::after {
+    opacity: 1;
 }
 
 .cont {
@@ -212,10 +251,11 @@ li a{
 }
 
 .RPL {
-    background-color:white;
-    padding:15px;
+  background-color:#f2f5f7;
+    padding:54px;
     margin:20px;
     border-radius:20px;
+     transition: all 0.3s ease-in-out;
 }
 
 .RPL .judul{
@@ -226,9 +266,7 @@ li a{
     padding:8px   
 }
 .RPL:hover {
-    box-shadow: 0 4px 8px rgba(224, 101, 101, 0.1);
-    transform: translateY(-5px);
-    transition: all 0.3s  ease;
+    box-shadow: 0 4px 12px 3px rgba(0, 0, 0, 0.1);
 }
 .RPL .silabus1{
     background-color: #0c084c;
@@ -242,14 +280,13 @@ li a{
 
 .TKJ {
    background-color:rgb(244, 244, 244);
-    padding:15px;
+     padding:54px;
     margin:20px;
   border-radius:20px;
+   transition: all 0.3s ease-in-out;
 }
 .TKJ:hover {
-    box-shadow: 0 4px 8px rgba(224, 101, 101, 0.1);
-    transform: translateY(-5px);
-     transition: all 0.4s ease-in-out;
+    box-shadow: 0 4px 12px 3px rgba(0, 0, 0, 0.1);
 }
 
     .TKJ .silabus2{
@@ -276,15 +313,14 @@ li a{
 
 .DKV {
     background-color:#f2f5f7;
-    padding:15px;
+    padding:54px;
     margin:20px;
    border-radius:20px;
+   transition: all 0.3s ease-in-out;
   
 }
 .DKV:hover {
-    box-shadow: 0 4px 8px rgba(224, 101, 101, 0.1);
-    transform: translateY(-5px);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .DKV .silabus3{
@@ -362,6 +398,65 @@ h1 {
    transition: all 0.4s ease-in-out;
 }
 
+.mtcna img{
+    display: flex;
+}
+.con-gambar {
+    display: flex;
+}
+
+.cewek img {
+    width: 400px;
+}
+
+.mtcna {
+    background-color:#f2f5f7;
+    padding:8px;
+    width: 55%;
+    border-radius:20px;
+    transition: all 0.3s ease-in-out;
+    margin: 50px;
+   
+}
+
+.mtcna:hover {
+     box-shadow: 0 4px 20px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.cewek {
+    background-color:#fceeea;
+    padding:20px;
+    width: 55%;
+   margin: 50px;
+    border-radius:20px;
+    transition: all 0.3s ease-in-out;
+}
+.cewek:hover {
+     box-shadow: 0 4px 12px 5px rgba(0, 0, 0, 0.1);
+}
+
+.religius {
+    background-color:#f2f5f7;
+    padding:8px;
+    width: 55%;
+    border-radius:20px;
+    transition: all 0.3s ease-in-out;
+    margin: 50px;
+}
+
+.religius:hover {
+     box-shadow: 0 4px 12px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 330px) {
         .navibar {
             display: flex;
@@ -378,9 +473,7 @@ h1 {
             display: flex;
             flex-direction: column;
             }
-
-            
-
-            
         }
+
+
 
