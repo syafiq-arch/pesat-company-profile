@@ -14,14 +14,13 @@ all_buttons.forEach((buttons_each) => {
         
         //menampilakan atau sembunyikan semua gambar
         all_images.forEach((image_each) => {
-            if(filter === "All" || image_each.classList.contains
-                (filter)) {
-
+            if(filter === "All" || image_each.classList.contains(filter)) {
                 image_each.style.display = "block";
+                image_each.style.animation = "slideUp 0.5s ease"; // Tambahkan animasi
             } else {
                 image_each.style.display = "none";
             }
-        })
+        });
 
 
     });
